@@ -1,0 +1,302 @@
+
+:root {
+    --bg-color: #c0b9b1;
+    --text-color: #323232;
+    --fg-color: #e0d8d1;
+    --dr-color: #cfc9c1;
+    --shadow-color: #0000001a;
+    --empty-bar: #ffffff33;
+}
+
+body.dark-mode {
+    transition: 0.3s;
+
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --fg-color: #2b2725;
+    --dr-color: #25211f;
+    --shadow-color: #ffffff1f;
+    --empty-bar: hwb(0 0% 100% / 0.2);
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    /* font-family: Arial, sans-serif; */
+    /* font-family: 'Century Gothic', sans-serif; */
+    /* font-family: 'helvetica', sans-serif; */
+    /* font-family: 'Segoe UI Variable', system-ui, sans-serif; */
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /* font-family: ui-sans-serif, system-ui, sans-serif; */
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--fg-color);
+    padding: 8px 10px;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+}
+
+.navbar .left {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar h1 {
+    margin: 5px;
+    /* font-size: 24px; */
+}
+
+h2{
+    margin: 0px;
+    font-size: 20px;
+}
+
+p{
+    margin: 4px 0 0 1px;
+}
+
+.menu-btn {
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-color);
+    margin-right: 25px;
+    width: 10px;
+}
+
+
+
+/* Sidebar (Drawer) */
+.drawer {
+    position: fixed;
+    left: -300px;
+    width: 230px;
+    height: 100%;
+    background: var(--dr-color);
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+    /* padding: 20px; */
+    transition: left 0.3s ease-in-out;
+}
+
+.drawer.open {
+    left: 0;
+}
+
+.drawer ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.drawer ul li {
+    transition: 0.3s;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.drawer ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.drawer ul li a i{
+    padding: 6px;
+}
+
+.drawer ul li:hover{
+    background-color: var(--bg-color)
+}
+
+.drawer ul li button {
+    /* font-size: 24px; */
+    /* cursor: pointer; */
+    height: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+    margin: 10px 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+.card {
+    max-width: 800px;
+    width: 100%;
+    background: var(--fg-color);
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+    border-radius: 8px;
+}
+
+/* Progress Bars */
+.progress-container {
+    margin-top: 20px;
+}
+
+.progress-container-book{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+    /* padding-bottom: 15px; */
+    /* background: white;
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--empty-bar);
+    border: solid 1px rgb(148, 122, 73);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    transition: width 0.4s ease;
+}
+
+.blue { background: #007bff; }
+.green { background: #28a745; }
+.red { background: #dc3545; }
+.brown { background: #aa9476; }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .navbar h1 {
+        font-size: 20px;
+    }
+
+    .drawer {
+        width: 150px;
+    }
+}
+
+@media (min-width: 768px) { /* Apply effect only on larger screens */
+    .main-content.shifted {
+        margin-left: 250px;
+        /* transition: left 0.3s ease-in-out; */
+    }
+}
+
+
+
+/* PROFILE */
+@import url("colors.css");
+
+
+/* Profile Button Style */
+.profile-btn {
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 36px;
+    width: 36px;
+    padding-left: 10px;
+    margin-left: 20px;
+}
+
+#profileDisplay {
+    background-color: transparent;
+    border: solid 1px var(--LightBlue);
+    color: var(--LightBlue);
+}
+
+#profileDisplay:hover {
+    transition: 0.2s;
+    background-color: var(--TranslucentWhite2);
+    border: solid 1px var(--GrayBlue);
+    color: gray;
+}
+
+
+/* Profile Popup Style */
+.profile-popup {    
+    position: fixed;
+    top: 57px;
+    right: 0;
+    width: 250px;
+    height: 400px;
+    /* background:var(--dr-color); */
+    background-color: var(--dr-color);
+    box-shadow: 0px 20px 20px var(--TranslucentBlack1);
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#profilePopup {
+    display: none;
+}
+
+.profile-content {
+    position: relative;
+}
+
+.profile-header {
+    text-align: center;
+}
+
+.profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-header h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.profile-header p {
+    font-size: 14px;
+    color: #777;
+}
+
+.profile-settings {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.profile-settings a {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.profile-settings a:hover {
+    text-decoration: underline;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}

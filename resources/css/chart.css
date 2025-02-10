@@ -1,0 +1,7 @@
+
+.chart-wrapper {
+    display: flex; /* Enable flexbox */
+    gap: 20px; /* Space between charts */
+    margin: 20px 0; /* Add some margin for spacing */
+}
+
