@@ -25,58 +25,64 @@
         </button>
     </nav>
 
-    <!-- Sidebar Drawer -->
-    <aside class="drawer" id="drawer">
-        <ul>
-            {{-- <li><a href="#"><i class="fa fa-moon-o"></i> Dashboard</a></li> --}}
-            <li><a href="#"><i class="fa fa-book"></i> My Books</a></li>
-            <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-            <li>
-                <a id="dark-mode-btn" onclick="toggleDarkMode()">
-                    <i class="fa fa-moon-o"></i> Dark Mode
-                </a>
-            </li>
-            <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
-        </ul>
-    </aside>
+    <div class="below-navbar">
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="card">
-            <h2>Welcome Back, Reader!</h2>
-            <p>Continue your reading journey and explore new books.</p>
-        </div>
+        <!-- Sidebar Drawer -->
+        <aside class="drawer" id="drawer">
+            <ul>
+                {{-- <li><a href="#"><i class="fa fa-moon-o"></i> Dashboard</a></li> --}}
+                <li><button href="#"><i class="fa fa-book"></i> My Books</button></li>
+                <li><button href="#"><i class="fa fa-gear"></i> Settings</button></li>
+                <li>
+                    <button id="dark-mode-btn" onclick="toggleDarkMode()">
+                        <i class="fa fa-moon-o"></i> Dark Mode
+                    </button>
+                </li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <li><button type="submit"><i class="fa fa-sign-out"></i> Logout</button></li>
+                </form>
+            </ul>
+        </aside>
 
-        <div class="card">
-            <h2>Reading Progress</h2>
-            <div class="progress-container">
-                <div class="progress-container-book">
-                    <p>The Great Gatsby</p>
-                    <p>70%</p>
-                </div>
-                <div class="progress-bar"><div class="progress brown" style="width: 70%;"></div></div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="card">
+                <h2>Welcome Back, Reader!</h2>
+                <p>Continue your reading journey and explore new books.</p>
             </div>
-            <div class="progress-container">
-                <div class="progress-container-book">
-                    <p>Atomic Habits </p>
-                    <p>40%</p>
-                </div>
-                <div class="progress-bar"><div class="progress brown" style="width: 40%;"></div></div>
-            </div>
-            <div class="progress-container">
-                <div class="progress-container-book">
-                    <p>1984 </p>
-                    <p>90%</p>
-                </div>
-                <div class="progress-bar"><div class="progress brown" style="width: 90%;"></div></div>
-            </div>
-        </div>
 
-        <div class="card">
-            <h2>Discover New Books</h2>
-            <p>Find new recommendations based on your reading preferences.</p>
-        </div>
-    </main>
+            <div class="card">
+                <h2>Reading Progress</h2>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>The Great Gatsby</p>
+                        <p>70%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 70%;"></div></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>Atomic Habits </p>
+                        <p>40%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 40%;"></div></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>1984 </p>
+                        <p>90%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 90%;"></div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Discover New Books</h2>
+                <p>Find new recommendations based on your reading preferences.</p>
+            </div>
+        </main>
+    </div>
 
     {{-- POPUPS --}}
     <div id="profilePopup" class="profile-popup">
