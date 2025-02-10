@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Laravel Page</title>
+    <title>Note-Z-Book</title>
 
     @vite(['resources/css/styles.css'])
     @vite(['resources/js/popup.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-    
+
 </head>
 <body>
 
@@ -18,7 +18,7 @@
     <nav class="navbar">
         <div class="left">
             <button class="menu-btn" id="menu-btn" onclick="toggleDrawer()">☰</button>
-            <h1>Book Log</h1>
+            <h1>Note-Z-Book</h1>
         </div>
         <button id="profileDisplay" class="profile-btn">
             <i class="fa fa-user"></i>
@@ -83,7 +83,7 @@
         <div class="profile-content">
             <span class="close-btn" id="closeProfilePopupBtn">&times;</span>
             <div class="profile-header">
-                <img src="{{ asset('images/logo.png') }}" alt="Profile Picture" class="profile-img">
+                <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="profile-img">
                 <h3>{{ auth()->user()->firstName }}</h3>
                 <p>@{{ auth()->user()->username }}</p>
                 {{-- <h3>Bethelhem</h3>
@@ -103,7 +103,7 @@
             var mainContent = document.querySelector('.main-content');
 
             drawer.classList.toggle('open');
-            
+
             if (window.innerWidth >= 768) {
                 mainContent.classList.toggle('shifted');
             }
@@ -113,7 +113,7 @@
             } else {
                 menuBtn.textContent = '☰';
             }
-            
+
         }
 
         function toggleDarkMode() {
