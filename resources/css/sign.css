@@ -1,0 +1,118 @@
+
+:root {
+    --gradient-color: #c4b3a0;
+    --bg-color: #c0b9b1;
+    --text-color: #323232;
+    --fg-color: #e0d8d1;
+    --shadow-color: #0000001a;
+    --text-area: #eeeeee;
+
+    --brown-light: #aa9476;
+    --brown-normal: #836844;
+    --brown-dark: #412f19;
+    
+    --button-lighter: #b8915a;
+    --button-darker: #9b7b4f;
+}
+
+/* :root { */
+body.dark-mode {
+
+    transition: 0.3s;
+    
+    --gradient-color: #121212;
+    --bg-color: #312c29;
+    --text-color: #e0e0e0;
+    --fg-color: #4e443d;
+    --shadow-color: #ffffff1f;
+    --text-area: #f0d2a675;
+
+    --brown-light: #aa9476;
+    --brown-normal: #836844;
+    --brown-dark: #412f19;
+    
+    --button-lighter: #b8915a;
+    --button-darker: #9b7b4f;
+}
+
+.loginBody{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-color);
+    background: linear-gradient(160deg, var(--bg-color), var(--gradient-color));
+    transition: 0.3s ease-in-out;
+
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.loginBox{
+    background: var(--fg-color);
+    padding: 25px;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+    border-radius: 8px;
+}
+
+.loginBox h3{
+    display: flex;
+    justify-content: center;
+}
+
+.loginBox label{
+    height: auto;
+}
+
+.loginTextArea{
+    background-color: var(--text-area);
+    width: 98%;
+    height: 40px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid gray;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 0 7px;
+}
+
+/* .loginTextArea:active{
+    transition: 0.2s;
+} */
+
+.loginButton{
+    background-color: var(--button-darker);
+    color: aliceblue;
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    /* margin-left: 7%; */
+}
+
+.loginButton:hover{
+    transition: 0.2s;
+    background-color: var(--button-lighter);
+    /* margin-left: 7%; */
+}
+
+.loginLink{
+    color: var(--brown-dark);
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.loginLink:hover{
+    color: var(--brown-normal);
+    transition: 0.2s;
+}

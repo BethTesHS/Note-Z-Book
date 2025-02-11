@@ -6,6 +6,8 @@
     --dr-color: #cfc9c1;
     --shadow-color: #0000001a;
     --empty-bar: #ffffff33;
+
+    --brown: #aa9476;
 }
 
 body.dark-mode {
@@ -181,7 +183,7 @@ p{
 .blue { background: #007bff; }
 .green { background: #28a745; }
 .red { background: #dc3545; }
-.brown { background: #aa9476; }
+.brown { background: var(--brown); }
 
 /* Responsive Design */
 @media (max-width: 600px) {
