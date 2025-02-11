@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BookController;
+
 use App\Http\Controllers\PdfController;
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -25,10 +28,12 @@ Route::middleware(['auth'])->group(function () {
         return view('welcome');
     });
 
-    Route::get('home', [HomeController::class, 'page'])->name('home'); // Form page
+    Route::get('home', [HomeController::class, 'viewPage'])->name('home'); // Form page
     Route::post('home', [HomeController::class, 'store'])->name('home.store'); // Store data after form submission
     Route::put('home', [HomeController::class, 'update'])->name('home.update'); // Store data after form submission
     Route::delete('home', [HomeController::class, 'delete'])->name('home.delete'); // Store data after form submission
+
+    Route::get('books', [BookController::class, 'viewPage'])->name('books'); // Form page
 
     Route::get('/upload', [PdfController::class, 'showUploadForm'])->name('pdf.upload.form');
     Route::post('/upload', [PdfController::class, 'upload'])->name('pdf.upload');

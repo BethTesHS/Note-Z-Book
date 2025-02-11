@@ -30,18 +30,12 @@
         <!-- Sidebar Drawer -->
         <aside class="drawer" id="drawer">
             <ul>
-                {{-- <li><a href="#"><i class="fa fa-moon-o"></i> Dashboard</a></li> --}}
+                
                 <li>
-                    <button onclick="window.location.href='{{ route('books') }}'">
-                        <i class="fa fa-book"></i> My Books
+                    <button onclick="window.location.href='{{ route('home') }}'">
+                        <i class="fa fa-home"></i> Home
                     </button>
                 </li>
-
-                {{-- <li>
-                    <button href="#">
-                        <i class="fa fa-gear"></i> Settings
-                    </button>
-                </li> --}}
 
                 <li>
                     <button id="dark-mode-btn" onclick="toggleDarkMode()">
@@ -154,13 +148,6 @@
                 document.getElementById("dark-mode-btn").innerHTML = `<i class="fa fa-sun-o"></i> Light Mode`;
             }
         });
-
-        // (function() {
-        //     if (localStorage.getItem('darkMode') === 'true') {
-        //         document.body.classList.add('dark-mode');
-        //         document.getElementById('dark-mode-btn').innerHTML = '&nbsp☀ Light Mode';
-        //     }
-        // })();
 
     </script>
 

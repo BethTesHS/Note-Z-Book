@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Home;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BookController extends Controller
 {
     // The method that retrieves and displays members
     public function viewPage() {
-        // $home = Home::all();  // Get all members from the database
-        // return view('home', compact('home'));  // Pass the data to the view
-        return view('home');  // Pass the data to the view
+        
+        return view('books');  // Pass the data to the view
     }
 
     public function store(Request $request) {
