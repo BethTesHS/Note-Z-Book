@@ -97,6 +97,7 @@ p{
     width: 230px;
     height: 100%;
     background: var(--dr-color);
+    border-right: 1px solid var(--link-normal);
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
     transition: left 0.3s ease-in-out;
     z-index: 500;
@@ -176,6 +177,7 @@ p{
 
 .book {
     padding: 0px 10px;
+    padding-top: 10px;
     background: var(--bg-color);
     width: 150px;
     height: 250px;
@@ -193,20 +195,20 @@ p{
 
 /* Progress Bars */
 .progress-container {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 210px;
+    height: 235px;
     font-style: italic;
+    
 }
 
 .progress-container-book{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 17px;
+    margin-bottom: 10px;  
 }
 
 .progress-bar {
@@ -260,6 +262,8 @@ p{
     width: 230px;
     height: 400px;
     background-color: var(--dr-color);
+    border: 1px solid var(--link-normal);
+    border-right: transparent;
     border-radius: 0 0 0 7px;
     padding: 30px 0 0 0;
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
@@ -348,6 +352,7 @@ p{
     }
     
     .books {
+        padding-left: 0px;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;

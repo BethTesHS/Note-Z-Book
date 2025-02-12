@@ -86,10 +86,10 @@
                 @foreach ($userBooks as $userBook)
                     <?php 
                         $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
-                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 4)*100);
+                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
                     ?>
                     
-                    <div class="progress-container">
+                    <div style="margin-top: 15px">
                         <div class="progress-container-book">
                             <p> {{ $bookDetail->title }}</p>
                             <p> {{ $readProgress}}%</p>
