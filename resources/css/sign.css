@@ -1,43 +1,38 @@
-
 :root {
-    --gradient-color: #c4b3a0;
+    --bg-color: #121212;
+    --fg-color: #292421;
+    --text-color: #e0e0e0;
+
+    --text-area: #3a342f;
+    --text-placeholder: #ffffff80;
+
+    --link-normal: #f0d9ba;
+    --link-dark: #d2ad79;
+
+    --button-lighter: #a07841;
+    --button-darker: #7f633b;
+
+    --shadow-color: #0000001a;
+}
+
+body.light-mode {
     --bg-color: #c0b9b1;
     --text-color: #323232;
     --fg-color: #e0d8d1;
-    --shadow-color: #0000001a;
+
     --text-area: #eeeeee;
+    --text-placeholder: #808080;
 
-    --brown-light: #aa9476;
-    --brown-normal: #836844;
-    --brown-dark: #412f19;
-    
+    --link-normal: #836844;
+    --link-dark: #412f19;
+
     --button-lighter: #b8915a;
     --button-darker: #9b7b4f;
 }
 
-/* :root { */
-body.dark-mode {
-
-    transition: 0.3s;
-    
-    --gradient-color: #121212;
-    --bg-color: #312c29;
-    --text-color: #e0e0e0;
-    --fg-color: #4e443d;
-    --shadow-color: #ffffff1f;
-    --text-area: #f0d2a675;
-
-    --brown-light: #aa9476;
-    --brown-normal: #836844;
-    --brown-dark: #412f19;
-    
-    --button-lighter: #b8915a;
-    --button-darker: #9b7b4f;
-}
-
-.loginBody{
+.signBody{
     margin: 0;
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
 
     display: flex;
@@ -45,32 +40,37 @@ body.dark-mode {
     align-items: center;
     height: 100vh;
     color: var(--text-color);
-    background: linear-gradient(160deg, var(--bg-color), var(--gradient-color));
-    transition: 0.3s ease-in-out;
+    background-color: var(--bg-color);
+    /* transition: 0.3s ease-in-out; */
 
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.loginBox{
+.signBox{
     background: var(--fg-color);
-    padding: 25px;
+    padding: 20px;
     max-width: 450px;
     width: 100%;
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
     border-radius: 8px;
 }
 
-.loginBox h3{
+.signBox text{
+    font-weight: bold;
+    font-size: 17px;
+    padding-bottom: 15px;
     display: flex;
     justify-content: center;
 }
 
-.loginBox label{
+.signBox label{
+    padding-left: 3px;
     height: auto;
 }
 
-.loginTextArea{
+.signTextArea{
     background-color: var(--text-area);
+    color: var(--text-color);
     width: 98%;
     height: 40px;
     outline: none;
@@ -81,11 +81,16 @@ body.dark-mode {
     padding: 0 7px;
 }
 
-/* .loginTextArea:active{
-    transition: 0.2s;
-} */
+.signTextArea::placeholder{
+    color: var(--text-placeholder);
+}
 
-.loginButton{
+.signTextArea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px var(--text-area) inset;
+    -webkit-text-fill-color: var(--text-color) !important;
+}
+
+.signButton{
     background-color: var(--button-darker);
     color: aliceblue;
     width: 100%;
@@ -98,21 +103,21 @@ body.dark-mode {
     /* margin-left: 7%; */
 }
 
-.loginButton:hover{
+.signButton:hover{
     transition: 0.2s;
     background-color: var(--button-lighter);
     /* margin-left: 7%; */
 }
 
-.loginLink{
-    color: var(--brown-dark);
+.signLink{
+    color: var(--link-dark);
     font-size: small;
     display: flex;
     justify-content: center;
     cursor: pointer;
 }
 
-.loginLink:hover{
-    color: var(--brown-normal);
+.signLink:hover{
+    color: var(--link-normal);
     transition: 0.2s;
 }

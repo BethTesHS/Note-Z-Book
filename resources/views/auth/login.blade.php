@@ -11,25 +11,38 @@
     @vite(['resources/css/sign.css'])
 
     <title>Document</title>
+    <script>
+        window.onload = function() {
+            const message = "<?php echo $message; ?>";
+            if (message) {
+                alert(message);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("lightMode") === "true") {
+                document.body.classList.add("light-mode");
+            }
+        });
+    </script>
 
 </head>
 
 {{-- @section('content') --}}
-<body class="loginBody">
-    <card class="loginBox">
-        <h3> Welcome Back </h3>
+<body class="signBody">
+    <card class="signBox">
+        <text> Login </text>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            {{-- <br> --}}
 
             <label> Email </label> <br>
-            <input id="email" placeholder="Please enter your email." type="email" class="loginTextArea @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autofocus> <br>
-            
-            <label> Password </label> <br>
-            <input id="password" placeholder="Please enter your password."type="password" class="loginTextArea @error('password') is-invalid @enderror" name="password" required> <br>
+            <input id="email" placeholder="Please enter your email." type="email" class="signTextArea @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required> <br>
 
-            
+            <label> Password </label> <br>
+            <input id="password" placeholder="Please enter your password."type="password" class="signTextArea @error('password') is-invalid @enderror" name="password" required> <br>
+
+
             @if($errors->any())
                 <div class="alert alert-danger" style="color:red; font-size: 15px;">
                     <div>
@@ -39,24 +52,16 @@
                     </div>
                 </div>
             @endif
-            
-            <button type="submit" class="loginButton">
+
+            <button type="submit" class="signButton">
                 {{ __('Login') }}
             </button>
-            {{-- <input class="loginButton" name="login" type="submit" value="Login"> <br> --}}
+            {{-- <input class="signButton" name="login" type="submit" value="Login"> <br> --}}
         </form>
 
         <div>
-            <a class="loginLink" href="{{ route('register') }}"> Don't have an account? Sign up!</a>
+            <a class="signLink" href="{{ route('register') }}"> Don't have an account? Sign up!</a>
         </div>
     </card>
-    <script>
-        window.onload = function() {
-            const message = "<?php echo $message; ?>";
-            if (message) {
-                alert(message);
-            }
-        }
-    </script>
 </body>
 </html>

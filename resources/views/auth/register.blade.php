@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- <link rel="stylesheet" href="style.css"/> --}}
-    @vite(['resources/css/style.css'])
+    @vite(['resources/css/sign.css'])
 
     <title>Document</title>
     <script>
@@ -19,36 +19,40 @@
                 alert(message);
             }
         }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("lightMode") === "true") {
+                document.body.classList.add("light-mode");
+            }
+        });
     </script>
 </head>
-<body class="loginBody">
-    <div class="loginBox">
-        <div class="loginWelcome">
-            <h3> Welcome </h3>
-        </div>
+<body class="signBody">
+    <div class="signBox">
+        <text> Register </text>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
-            <br>
-            <label class="loginText"> First Name</label> <br>
-            <input type="text" placeholder="Please enter your First Name." class="loginTextArea" id="firstName" name="firstName" value="{{ old('firstName') }}" required> <br>
 
-            <label class="loginText"> Last Name</label> <br>
-            <input type="text" placeholder="Please enter your Last Name." class="loginTextArea" id="lastName" name="lastName" value="{{ old('lastName') }}" required> <br>
+            <label> First Name</label> <br>
+            <input type="text" placeholder="Please enter your First Name." class="signTextArea" id="firstName" name="firstName" value="{{ old('firstName') }}" required> <br>
 
-            <label class="loginText"> Username </label> <br>
-            <input type="text" placeholder="Please enter a Username" class="loginTextArea" id="username" name="username" value="{{ old('username') }}" required> <br>
+            <label> Last Name</label> <br>
+            <input type="text" placeholder="Please enter your Last Name." class="signTextArea" id="lastName" name="lastName" value="{{ old('lastName') }}" required> <br>
 
-            <label class="loginText"> Email</label> <br>
-            <input type="email" placeholder="Please enter your Email Address." class="loginTextArea" id="email" name="email" value="{{ old('email') }}" required> <br>
-            
-            <label class="loginText"> Password</label> <br>
-            <input type="password" placeholder="Please enter a password." class="loginTextArea" id="password" name="password" required> <br>
+            {{-- <label> Username </label> <br>
+            <input type="text" placeholder="Please enter a Username" class="signTextArea" id="username" name="username" value="{{ old('username') }}" required> <br> --}}
 
-            
-            <label class="loginText"> Confirm Password</label> <br>
-            <input type="password" placeholder="Please enter a password." class="loginTextArea" id="password_confirmation" name="password_confirmation" required> <br>
-            
+            <label> Email</label> <br>
+            <input type="email" placeholder="Please enter your Email Address." class="signTextArea" id="email" name="email" value="{{ old('email') }}" required> <br>
+
+            <label> Password</label> <br>
+            <input type="password" placeholder="Please enter a password." class="signTextArea" id="password" name="password" required> <br>
+
+
+            <label> Confirm Password</label> <br>
+            <input type="password" placeholder="Please enter a password." class="signTextArea" id="password_confirmation" name="password_confirmation" required> <br>
+
             @if($errors->any())
                 <div class="alert alert-danger" style="color:red; font-size: 15px;">
                     <div>
@@ -58,12 +62,12 @@
                     </div>
                 </div>
             @endif
-            
-            <button type="submit" class="loginButton">{{ __(key: '  Register') }}</button>
-            {{-- <input class="loginButton" name="register" type="submit" value="Register"> <br> --}}
+
+            <button type="submit" class="signButton">{{ __(key: '  Register') }}</button>
+            {{-- <input class="signButton" name="register" type="submit" value="Register"> <br> --}}
         </form>
         <div>
-            <a class="loginLink" href="{{ route('login') }}"> Already have an account? Login!</a>
+            <a class="signLink" href="{{ route('login') }}"> Already have an account? Login!</a>
         </div>
     </div>
 </body>
