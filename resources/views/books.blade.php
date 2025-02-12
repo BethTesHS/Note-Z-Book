@@ -7,6 +7,7 @@
 
     @vite(['resources/css/style.css'])
     @vite(['resources/js/script.js'])
+    @vite(['resources/js/swipe.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     
@@ -73,22 +74,36 @@
                 <p>Continue your reading journey and explore new books.</p>
             </div>
 
-            <div class="card">
+            <div class="library">
                 <h2>Reading Progress</h2>
-                @foreach ($userBooks as $userBook)
-                    <?php 
-                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
-                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 4)*100);
-                    ?>
+                <div class="shelf">
+                    <button class="nav-button" onclick="prev()">&#10094;</button>
+
+                    <div class="window">
+                    <div class="books">
+                        @foreach ($userBooks as $userBook)
+                            <div class="book">
+                                <?php 
+                                    $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
+                                    $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 4)*100);
+                                ?>
+                                
+                                <div class="progress-container">
+                                    <div class="progress-container-book">
+                                        <p> {{ $bookDetail->title }}</p>
+                                    </div>
+                                    <div class="progress-container-bar">
+                                        <p> {{ $readProgress}}%</p>
+                                        <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                                    </div>
+                                </div>     
+                                    
+                            </div>
+                        @endforeach
+                    </div>
                     
-                    <div class="progress-container">
-                        <div class="progress-container-book">
-                            <p> {{ $bookDetail->title }}</p>
-                            <p> {{ $readProgress}}%</p>
-                        </div>
-                        <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
-                    </div>            
-                @endforeach
+                    <button class="nav-button" onclick = "next()">&#10095;</button>
+                </div>
             </div>
 
             <div class="card">
