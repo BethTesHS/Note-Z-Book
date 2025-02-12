@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note-Z-Book</title>
 
-    @vite(['resources/css/styles.css'])
+    @vite(['resources/css/style.css'])
     @vite(['resources/js/script.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -55,7 +55,7 @@
         </aside>
 
         {{-- Profile Sideview  --}}
-        <div id="profilePopup" class="profile-popup">
+        <aside id="profilePopup" class="profile-popup">
             <div class="profile-content">
                 <span class="close-btn" id="closeProfilePopupBtn">&times;</span>
                 <div class="profile-header">
@@ -64,7 +64,7 @@
                     <p>{{ '@'.auth()->user()->username }}</p>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Note-Z-Book</title>
 
-    @vite(['resources/css/styles.css'])
+    @vite(['resources/css/style.css'])
     @vite(['resources/js/script.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -61,7 +61,7 @@
         </aside>
 
         {{-- Profile Sideview --}}
-        <div id="profilePopup" class="profile-popup">
+        <aside id="profilePopup" class="profile-popup">
             <div class="profile-content">
                 <span class="close-btn" id="closeProfilePopupBtn">&times;</span>
                 <div class="profile-header">
@@ -71,7 +71,7 @@
                     <p>{{ '@'.auth()->user()->username }}</p>
                 </div>
             </div>
-        </div>
+        </aside>
 
         <!-- Main Content -->
         <main class="main-content">
@@ -109,7 +109,43 @@
                 <h2>Discover New Books</h2>
                 <p>Find new recommendations based on your reading preferences.</p>
             </div>
+
+            <div class="card">
+                <h2>Welcome Back, Reader!</h2>
+                <p>Continue your reading journey and explore new books.</p>
+            </div>
+
+            <div class="card">
+                <h2>Reading Progress</h2>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>The Great Gatsby</p>
+                        <p>70%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 70%;"></div></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>Atomic Habits </p>
+                        <p>40%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 40%;"></div></div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-container-book">
+                        <p>1984 </p>
+                        <p>90%</p>
+                    </div>
+                    <div class="progress-bar"><div class="progress brown" style="width: 90%;"></div></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Discover New Books</h2>
+                <p>Find new recommendations based on your reading preferences.</p>
+            </div>
         </main>
+        
     </div>
 
     
