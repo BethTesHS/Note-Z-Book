@@ -29,9 +29,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('home', [HomeController::class, 'viewPage'])->name('home'); // Form page
-    Route::post('home', [HomeController::class, 'store'])->name('home.store'); // Store data after form submission
-    Route::put('home', [HomeController::class, 'update'])->name('home.update'); // Store data after form submission
-    Route::delete('home', [HomeController::class, 'delete'])->name('home.delete'); // Store data after form submission
 
     Route::get('books', [BookController::class, 'viewPage'])->name('books'); // Form page
 

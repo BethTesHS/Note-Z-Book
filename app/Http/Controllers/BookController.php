@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Home;
+use App\Models\Book;
+use App\Models\UserBook;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     // The method that retrieves and displays members
     public function viewPage() {
-        
-        return view('books');  // Pass the data to the view
+        $userBooks = UserBook::where('user_id', auth()->user()->id)->with('book')->get();
+
+        return view('books', compact('userBooks'));
     }
 
     public function store(Request $request) {

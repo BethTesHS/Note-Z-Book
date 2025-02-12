@@ -32,8 +32,8 @@ body {
     /* font-family: 'Century Gothic', sans-serif; */
     /* font-family: 'helvetica', sans-serif; */
     /* font-family: 'Segoe UI Variable', system-ui, sans-serif; */
-    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     /* font-family: ui-sans-serif, system-ui, sans-serif; */
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     color: var(--text-color);
     background-color: var(--bg-color);
 }
@@ -142,6 +142,7 @@ p{
     margin: 10px 20px;
     transition: margin-left 0.3s ease-in-out;
 }
+
 .card {
     max-width: 800px;
     width: 100%;
@@ -182,11 +183,6 @@ p{
 .green { background: #28a745; }
 .red { background: #dc3545; }
 .brown { background: var(--brown); }
-
-
-
-/* PROFILE */
-@import url("colors.css");
 
 
 /* Profile Button Style */

@@ -76,33 +76,27 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="card">
-                <h2>Welcome Back, Reader!</h2>
+                <h2>Welcome Back, {{auth()->user()->firstName }}</h2>
                 <p>Continue your reading journey and explore new books.</p>
             </div>
 
             <div class="card">
                 <h2>Reading Progress</h2>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>The Great Gatsby</p>
-                        <p>70%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 70%;"></div></div>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>Atomic Habits </p>
-                        <p>40%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 40%;"></div></div>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>1984 </p>
-                        <p>90%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 90%;"></div></div>
-                </div>
+
+                @foreach ($userBooks as $userBook)
+                    <?php 
+                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
+                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 4)*100);
+                    ?>
+                    
+                    <div class="progress-container">
+                        <div class="progress-container-book">
+                            <p> {{ $bookDetail->title }}</p>
+                            <p> {{ $readProgress}}%</p>
+                        </div>
+                        <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                    </div>            
+                @endforeach
             </div>
 
             <div class="card">
@@ -110,40 +104,15 @@
                 <p>Find new recommendations based on your reading preferences.</p>
             </div>
 
-            <div class="card">
-                <h2>Welcome Back, Reader!</h2>
-                <p>Continue your reading journey and explore new books.</p>
-            </div>
-
-            <div class="card">
-                <h2>Reading Progress</h2>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>The Great Gatsby</p>
-                        <p>70%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 70%;"></div></div>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>Atomic Habits </p>
-                        <p>40%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 40%;"></div></div>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-container-book">
-                        <p>1984 </p>
-                        <p>90%</p>
-                    </div>
-                    <div class="progress-bar"><div class="progress brown" style="width: 90%;"></div></div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Discover New Books</h2>
-                <p>Find new recommendations based on your reading preferences.</p>
-            </div>
+            {{-- <div>
+                <?php
+                    $userBook = $userBooks[0];
+                    $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
+                ?>
+                {{ json_encode($userBook) }}
+                <br>
+                {{ json_encode($bookDetail) }}
+            </div> --}}
         </main>
         
     </div>
