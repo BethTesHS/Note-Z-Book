@@ -1,24 +1,21 @@
-
 :root {
-    --bg-color: #c0b9b1;
-    --text-color: #323232;
-    --fg-color: #e0d8d1;
-    --dr-color: #cfc9c1;
-    --shadow-color: #0000001a;
-    --empty-bar: #ffffff33;
+    /* transition: 0.3s; */
 
+    --bg-color: #121212;
+    --fg-color: #292421;
+    --text-color: #e0e0e0;
+    --dr-color: #25211f;
+    --empty-bar: #00000033;
+    --shadow-color: #0000001a;
     --brown: #aa9476;
 }
 
-body.dark-mode {
-    transition: 0.3s;
-
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --fg-color: #2b2725;
-    --dr-color: #25211f;
-    --shadow-color: #ffffff1f;
-    --empty-bar: hwb(0 0% 100% / 0.2);
+body.light-mode {
+    --bg-color: #c0b9b1;
+    --fg-color: #e0d8d1;
+    --text-color: #323232;
+    --dr-color: #cfc9c1;
+    --empty-bar: #ffffff33;
 }
 
 /* Global Styles */
@@ -139,7 +136,6 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     padding: 20px;
     margin: 10px 20px;
     transition: margin-left 0.3s ease-in-out;
@@ -235,7 +231,7 @@ p{
 
 
 /* Profile Popup Style */
-.profile-popup {    
+.profile-popup {
     position: fixed;
     top: 57px;
     right: 0;

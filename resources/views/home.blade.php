@@ -10,7 +10,54 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
+    <!-- JavaScript -->
+    <script>
+        function toggleDrawer() {
+            var drawer = document.getElementById('drawer');
+            var menuBtn = document.getElementById('menu-btn');
+            var mainContent = document.querySelector('.main-content');
 
+            drawer.classList.toggle('open');
+
+            if (window.innerWidth >= 768) {
+                mainContent.classList.toggle('shifted');
+            }
+
+            if (drawer.classList.contains('open')) {
+                menuBtn.textContent = '✖';
+            } else {
+                menuBtn.textContent = '☰';
+            }
+
+        }
+
+        function toggleLightMode() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains("light-mode");
+            localStorage.setItem('lightMode', isLightMode);
+
+            document.getElementById('light-mode-btn').innerHTML = isLightMode
+                ? `<i class="fa fa-moon-o"></i> Dark Mode`
+                : `<i class="fa fa-sun-o"></i> Light Mode`;
+        }
+
+        // Check for light mode preference on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            if (localStorage.getItem("lightMode") === "true") {
+                document.body.classList.add("light-mode");
+                document.getElementById("light-mode-btn").innerHTML = `<i class="fa fa-moon-o"></i> Dark Mode`;
+            }
+        });
+
+        // (function() {
+        //     if (localStorage.getItem('darkMode') === 'true') {
+        //         document.body.classList.add('dark-mode');
+        //         document.getElementById('dark-mode-btn').innerHTML = '&nbsp☀ Light Mode';
+        //     }
+        // })();
+
+    </script>
+    
 </head>
 <body>
 
@@ -44,8 +91,8 @@
                 </li> --}}
 
                 <li>
-                    <button id="dark-mode-btn" onclick="toggleDarkMode()">
-                        <i class="fa fa-moon-o"></i> Dark Mode
+                    <button id="light-mode-btn" onclick="toggleLightMode()">
+                        <i class="fa fa-moon-o"></i> Light Mode
                     </button>
                 </li>
 
@@ -115,54 +162,6 @@
             </div>
         </div>
     </div>
-
-    <!-- JavaScript -->
-    <script>
-        function toggleDrawer() {
-            var drawer = document.getElementById('drawer');
-            var menuBtn = document.getElementById('menu-btn');
-            var mainContent = document.querySelector('.main-content');
-
-            drawer.classList.toggle('open');
-
-            if (window.innerWidth >= 768) {
-                mainContent.classList.toggle('shifted');
-            }
-
-            if (drawer.classList.contains('open')) {
-                menuBtn.textContent = '✖';
-            } else {
-                menuBtn.textContent = '☰';
-            }
-
-        }
-
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains("dark-mode");
-            localStorage.setItem('darkMode', isDarkMode);
-
-            document.getElementById('dark-mode-btn').innerHTML = isDarkMode 
-                ? `<i class="fa fa-sun-o"></i> Light Mode` 
-                : `<i class="fa fa-moon-o"></i> Dark Mode`;
-        }
-
-        // Check for dark mode preference on page load
-        document.addEventListener("DOMContentLoaded", function () {
-            if (localStorage.getItem("darkMode") === "true") {
-                document.body.classList.add("dark-mode");
-                document.getElementById("dark-mode-btn").innerHTML = `<i class="fa fa-sun-o"></i> Light Mode`;
-            }
-        });
-
-        // (function() {
-        //     if (localStorage.getItem('darkMode') === 'true') {
-        //         document.body.classList.add('dark-mode');
-        //         document.getElementById('dark-mode-btn').innerHTML = '&nbsp☀ Light Mode';
-        //     }
-        // })();
-
-    </script>
 
 </body>
 </html>
