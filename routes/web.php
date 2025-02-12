@@ -25,7 +25,7 @@ Route::post('register', [RegisterController::class, 'register']);
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('home');
     });
 
     Route::get('home', [HomeController::class, 'viewPage'])->name('home'); // Form page
