@@ -6,49 +6,10 @@
     <title>Note-Z-Book</title>
 
     @vite(['resources/css/styles.css'])
-    @vite(['resources/js/popup.js'])
+    @vite(['resources/js/script.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    <!-- JavaScript -->
-    <script>
-        function toggleDrawer() {
-            var drawer = document.getElementById('drawer');
-            var menuBtn = document.getElementById('menu-btn');
-            var mainContent = document.querySelector('.main-content');
-
-            drawer.classList.toggle('open');
-
-            if (window.innerWidth >= 768) {
-                mainContent.classList.toggle('shifted');
-            }
-
-            if (drawer.classList.contains('open')) {
-                menuBtn.textContent = '✖';
-            } else {
-                menuBtn.textContent = '☰';
-            }
-
-        }
-
-        function toggleLightMode() {
-            document.body.classList.toggle('light-mode');
-            const isLightMode = document.body.classList.contains("light-mode");
-            localStorage.setItem('lightMode', isLightMode);
-
-            document.getElementById('light-mode-btn').innerHTML = isLightMode
-                ? `<i class="fa fa-moon-o"></i> Dark Mode`
-                : `<i class="fa fa-sun-o"></i> Light Mode`;
-        }
-
-        // Check for light mode preference on page load
-        document.addEventListener("DOMContentLoaded", function () {
-            if (localStorage.getItem("lightMode") === "true") {
-                document.body.classList.add("light-mode");
-                document.getElementById("light-mode-btn").innerHTML =`<i class="fa fa-moon-o"></i> Dark Mode`;
-            }
-        });
-
-    </script>
+    
 
 </head>
 <body>
@@ -93,6 +54,18 @@
             </ul>
         </aside>
 
+        {{-- Profile Sideview  --}}
+        <div id="profilePopup" class="profile-popup">
+            <div class="profile-content">
+                <span class="close-btn" id="closeProfilePopupBtn">&times;</span>
+                <div class="profile-header">
+                    <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="profile-img">
+                    <h3>{{ auth()->user()->firstName }}</h3>
+                    <p>{{ '@'.auth()->user()->username }}</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content -->
         <main class="main-content">
             <div class="card">
@@ -130,23 +103,6 @@
                 <p>Find new recommendations based on your reading preferences.</p>
             </div>
         </main>
-    </div>
-
-    {{-- POPUPS --}}
-    <div id="profilePopup" class="profile-popup">
-        <div class="profile-content">
-            <span class="close-btn" id="closeProfilePopupBtn">&times;</span>
-            <div class="profile-header">
-                <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="profile-img">
-                <h3>{{ auth()->user()->firstName }}</h3>
-                <p>@{{ auth()->user()->username }}</p>
-                {{-- <h3>Bethelhem</h3>
-                <p>JustBeth</p> --}}
-            </div>
-            <div class="profile-settings">
-                <a href="">Settings</a>
-            </div>
-        </div>
     </div>
 
 </body>

@@ -1,98 +1,59 @@
-
-var addPopup = document.getElementById('addMemberPopup');
-var editPopup = document.getElementById('editMemberPopup');
-var deletePopup = document.getElementById('deleteMemberPopup');
-
+// Get the popup and buttons
+var profilePopup = document.getElementById('profilePopup');
+var profileDisplay = document.getElementById('profileDisplay');
 
 
-
-
-// Add popup
-addMember.onclick = function() {
-    addPopup.style.display = 'flex'; // Display the popup
+profileDisplay.onclick = function() {
+    // profilePopup.style.display = (profilePopup.style.display === 'block') ? 'none' : 'block';
+    profilePopup.classList.toggle('open');
 }
 
 // Close the popup when the close button is clicked
-closeAddPopupBtn.onclick = function() {
-    addPopup.style.display = 'none'; // Hide the popup
+closeProfilePopupBtn.onclick = function() {
+    // profilePopup.style.display = 'none'; // Hide the popup
+    profilePopup.classList.toggle('open');
 }
 
-closeEditPopupBtn.onclick = function() {
-    editPopup.style.display = 'none'; // Hide the popup
-}
+// window.onclick = function(event) {
+//     if (event.target == profilePopup) {
+//         // profilePopup.style.display = 'none';
+//         profilePopup.classList.toggle('open');
+//     }
+// }
 
-closeDeletePopupBtn.onclick = function() {
-    deletePopup.style.display = 'none'; // Hide the popup
-}
+window.toggleDrawer = function() {
+    var drawer = document.getElementById('drawer');
+    var menuBtn = document.getElementById('menu-btn');
+    var mainContent = document.querySelector('.main-content');
 
-// Close the popup if the user clicks anywhere outside the popup content
-window.onclick = function(event) {
-    if (event.target == addPopup) {
-        addPopup.style.display = 'none';
+    drawer.classList.toggle('open');
+
+    if (window.innerWidth >= 768) {
+        mainContent.classList.toggle('shifted');
     }
-    if (event.target == editPopup) {
-        editPopup.style.display = 'none';
+
+    if (drawer.classList.contains('open')) {
+        menuBtn.textContent = '✖';
+    } else {
+        menuBtn.textContent = '☰';
     }
-    if (event.target == deletePopup) {
-        deletePopup.style.display = 'none';
-    }
+
 }
 
-// ----------------------- FOR MEMBERS ----------------------- //
+window.toggleLightMode = function() {
+    document.body.classList.toggle('light-mode');
+    const isLightMode = document.body.classList.contains("light-mode");
+    localStorage.setItem('lightMode', isLightMode);
 
-document.querySelectorAll('.editMember').forEach(button => {
-    button.addEventListener('click', function() {
-        const member = JSON.parse(button.getAttribute('data-id'));
+    document.getElementById('light-mode-btn').innerHTML = isLightMode
+        ? `<i class="fa fa-moon-o"></i> Dark Mode`
+        : `<i class="fa fa-sun-o"></i> Light Mode`;
+}
 
-        id.value=member['id'];
-        fn.value=member['firstName'];
-        ln.value=member['lastName'];
-        age.value=member['age'];
-        loc.value=member['location'];
-        tel.value=member['telNo'];
-
-        editPopup.style.display = 'flex';
-    });
+// Check for light mode preference on page load
+document.addEventListener("DOMContentLoaded", function () {
+    if (localStorage.getItem("lightMode") === "true") {
+        document.body.classList.add("light-mode");
+        document.getElementById("light-mode-btn").innerHTML = `<i class="fa fa-moon-o"></i> Dark Mode`;
+    }
 });
-
-document.querySelectorAll('.deleteMember').forEach(button => {
-    button.addEventListener('click', function() {
-        const member = JSON.parse(button.getAttribute('data-id'));
-
-        d_id.value=member['id'];
-        d_fn.value=member['firstName'];
-        d_ln.value=member['lastName'];
-
-        deletePopup.style.display = 'flex';
-    });
-});
-
-
-
-// ----------------------- FOR CONTRIBUTORS ----------------------- //
-
-document.querySelectorAll('.editContributor').forEach(button => {
-    button.addEventListener('click', function() {
-        const contributor = JSON.parse(button.getAttribute('data-id'));
-
-        con_id.value=contributor['id'];
-        con_fn.value=contributor['members']['firstName']+ ' ' + contributor['members']['lastName'];
-        con_mon.value=contributor['money'];
-        con_time.value=contributor['time'];
-
-        editPopup.style.display = 'flex';
-    });
-});
-
-document.querySelectorAll('.deleteContributor').forEach(button => {
-    button.addEventListener('click', function() {
-        const contributor = JSON.parse(button.getAttribute('data-id'));
-
-        con_d_id.value=contributor['id'];
-        con_d_fn.value=contributor['members']['firstName'];
-        con_d_ln.value=contributor['members']['lastName'];
-
-        deletePopup.style.display = 'flex';
-    });
-});
-
