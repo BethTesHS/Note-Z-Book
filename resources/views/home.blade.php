@@ -8,9 +8,11 @@
     @vite(['resources/css/style.css'])
     @vite(['resources/js/script.js'])
 
+    {{-- <script src="http://192.168.100.10:8000/js/script.js"></script> --}}
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 
-    
+
 </head>
 <body>
 
@@ -83,20 +85,26 @@
             <div class="card">
                 <h2>Reading Progress</h2>
 
-                @foreach ($userBooks as $userBook)
-                    <?php 
-                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
-                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
-                    ?>
-                    
-                    <div style="margin-top: 15px">
-                        <div class="progress-container-book">
-                            <p> {{ $bookDetail->title }}</p>
-                            <p> {{ $readProgress}}%</p>
+
+                @if($userBooks->isEmpty())
+                    <p> No Books </p>
+                @else
+                    @foreach ($userBooks as $userBook)
+                        <?php
+                            $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
+                            $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
+                        ?>
+
+                        <div style="margin-top: 15px">
+                            <div class="progress-container-book">
+                                <p> {{ $bookDetail->title }}</p>
+                                <p> {{ $readProgress}}%</p>
+                            </div>
+                            <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
                         </div>
-                        <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
-                    </div>            
-                @endforeach
+                    @endforeach
+
+                @endif
             </div>
 
             <div class="card">
@@ -114,10 +122,10 @@
                 {{ json_encode($bookDetail) }}
             </div> --}}
         </main>
-        
+
     </div>
 
-    
+
 
 </body>
 </html>

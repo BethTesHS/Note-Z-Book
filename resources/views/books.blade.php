@@ -10,7 +10,7 @@
     @vite(['resources/js/swipe.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    
+
 
 </head>
 <body>
@@ -76,6 +76,9 @@
 
             <div class="library">
                 <h2>Reading Progress</h2>
+                @if($userBooks->isEmpty())
+                    <p> No Books </p>
+                @else
                 <div class="shelf">
                     <button class="nav-button" onclick="prev()">&#10094;</button>
 
@@ -83,28 +86,31 @@
                         <div class="books">
                             @foreach ($userBooks as $userBook)
                                 <div class="book">
-                                    <?php 
-                                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first(); 
-                                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
-                                    ?>
-                                    
-                                    <div class="progress-container">
-                                        <div class="progress-container-book">
-                                            <p> {{ $bookDetail->title }}</p>
+                                        <?php
+                                            $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
+                                            $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
+                                        ?>
+                                        <div class="spine">
                                         </div>
-                                        <div>
-                                            <p style="padding-bottom: 10px"> {{ $readProgress}}%</p>
-                                            <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                                        <div class="cover">
+                                            <div class="progress-container">
+                                                <div class="progress-container-book">
+                                                    <p> {{ $bookDetail->title }}</p>
+                                                </div>
+                                                <div>
+                                                    <p style="padding-bottom: 7px"> {{ $readProgress}}%</p>
+                                                    <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>     
-                                        
                                 </div>
                             @endforeach
                         </div>
                     </div>
-                    
+
                     <button class="nav-button" onclick = "next()">&#10095;</button>
                 </div>
+                @endif
             </div>
 
             <div class="card">

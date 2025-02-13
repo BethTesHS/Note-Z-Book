@@ -7,11 +7,17 @@
     --dr-color: #25211f;
     --empty-bar: #00000033;
     --profile: #e7cca5;
-    
+
     --shadow-color: #0000001a;
-    --brown: #aa9476;
     --link-normal: #836844;
     --link-dark: #412f19;
+
+    --brown: #aa9476a0;
+    --cover-color-2: #895f2ddf;
+    --cover-color-1: #8b5d25df;
+    --spine-color-1: #412e16df;
+    --spine-color-2: #5f4526df;
+
 }
 
 body.light-mode {
@@ -22,6 +28,12 @@ body.light-mode {
     --empty-bar: #ffffff33;
     --profile: #946e40;
 
+
+    --brown: #987748;
+    --cover-color-1: #7d552380;
+    --cover-color-2: #8b5d2580;
+    --spine-color-1: #412e1680;
+    --spine-color-2: #5f452680;
 
 }
 
@@ -160,6 +172,9 @@ p{
     max-width: 800px;
     padding: 20px;
     width: 100%;
+    /* height: 100%;
+    min-height: 800px; */
+
     background: var(--fg-color);
     margin-bottom: 20px;
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
@@ -171,51 +186,72 @@ p{
     padding-left: 35px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 185px);
-    /* justify-content: center; */
-
 }
 
 .book {
-    padding: 0px 10px;
-    padding-top: 10px;
-    background: var(--bg-color);
-    width: 150px;
+    display: flex;
+    flex-direction: row;
+    background: linear-gradient(145deg, var(--cover-color-1), var(--cover-color-2));
+    width: 170px;
+    min-width: 170px;
     height: 250px;
-    
-    border: 1px solid var(--link-normal);
+    min-height: 250px;
 
-    margin-bottom: 20px;
-    box-shadow: 2px 5px 3px 2px var(--shadow-color);
     border-radius: 8px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
 }
 
-.nav-button {
-    display: none;
+.spine {
+    padding: 0px 7px;
+    padding-top: 10px;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to right, var(--spine-color-1), var(--spine-color-1));
+    left: 0;
+    top: 0;
+    border-radius: 8px 0 0 8px;
+    box-shadow: inset -3px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cover {
+    margin-top: 3.5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 140px;
+    height: 240px;
+    border: 1.5px solid rgba(45, 21, 17, 0.244);
+    /* border-left: transparent; */
+    margin-left: 3px;
+    border-radius: 0 6px 6px 0;
 }
 
 /* Progress Bars */
 .progress-container {
-    /* margin-top: 20px; */
+    margin: 5px;
+    /* padding-left: 5px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 235px;
-    font-style: italic;
-    
+    height: 230px;
+    /* font-style: italic; */
+
+    font-size: 17px;
 }
 
 .progress-container-book{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;  
+    font-size: 20px;
 }
 
 .progress-bar {
     width: 100%;
     height: 10px;
     background: var(--empty-bar);
-    border: solid 1px #947a49;
+    border: solid 1px #514021;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -223,6 +259,10 @@ p{
 .progress {
     height: 100%;
     transition: width 0.4s ease;
+}
+
+.nav-button {
+    display: none;
 }
 
 .blue { background: #007bff; }
@@ -337,8 +377,8 @@ p{
     }
 }
 
-@media (max-width: 450px) {
-    
+@media (max-width: 485px) {
+
 
     .shelf {
         display: flex;
@@ -347,27 +387,24 @@ p{
     }
 
     .window {
+        position: relative;
+
         width: 190px;
         overflow: hidden;
     }
-    
+
     .books {
         padding-left: 0px;
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         transition: transform 0.4s ease;
     }
-    
+
     .book {
         margin: 0 10px 0 10px;
-        background: var(--bg-color);
-        width: 150px;
-        min-width: 150px;
-        height: 250px;
+        margin-bottom: 20px;
         box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
-        border-radius: 8px;
-        text-align: center;
     }
 
     /* Navigation Buttons */
