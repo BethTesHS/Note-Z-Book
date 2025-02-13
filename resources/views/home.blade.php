@@ -19,7 +19,7 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="left">
-            <button class="menu-btn" id="menu-btn" onclick="toggleDrawer()">☰</button>
+            <button class="menu-btn" id="menu-btn" onclick="toggleDrawer()"><i class="fa fa-navicon"></i></button>
             <h1>Note-Z-Book</h1>
         </div>
         <button id="profileDisplay" class="profile-btn">

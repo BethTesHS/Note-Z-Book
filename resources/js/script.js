@@ -33,9 +33,9 @@ window.toggleDrawer = function() {
     }
 
     if (drawer.classList.contains('open')) {
-        menuBtn.textContent = '✖';
+        menuBtn.innerHTML = '<i class="fa fa-close"></i>';
     } else {
-        menuBtn.textContent = '☰';
+        menuBtn.innerHTML = '<i class="fa fa-navicon"></i>';
     }
 
 }

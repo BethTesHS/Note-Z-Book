@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     // The method that retrieves and displays members
     public function viewPage() {
+        $userBooks = [];
         $userBooks = UserBook::where('user_id', auth()->user()->id)->with('book')->get();
 
         // return response()->json([$userBooks[0], $userBooks[0]->book]);

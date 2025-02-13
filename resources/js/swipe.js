@@ -8,14 +8,14 @@
         const slideWidth = cards[0].getBoundingClientRect().width + 20;
         track.style.transform = `translateX(-${(slideWidth * currentIndex)}px)`;
     }
-    
+
     window.next = function(){
         if (currentIndex < cards.length - 1) {
             currentIndex++;
             updateSlidePosition();
         }
     }
-    
+
     window.prev = function(){
         if (currentIndex > 0) {
             currentIndex--;
@@ -24,17 +24,17 @@
     }
 
 // Swipe Functionality for Mobile Devices
-    let start;
-    track.addEventListener('touchstart', (e) => {
-        start = e.touches[0].clientX;
-    });
+    // let start;
+    // track.addEventListener('touchstart', (e) => {
+    //     start = e.touches[0].clientX;
+    // });
 
-    track.addEventListener('touchend', (e) => {
-        const end = e.changedTouches[0].clientX;
-        if (start > end + 50 && currentIndex < cards.length - 1) {
-            currentIndex++;
-        } else if (start < end - 50 && currentIndex > 0) {
-            currentIndex--;
-        }
-        updateSlidePosition();
-    });
+    // track.addEventListener('touchend', (e) => {
+    //     const end = e.changedTouches[0].clientX;
+    //     if (start > end + 50 && currentIndex < cards.length - 1) {
+    //         currentIndex++;
+    //     } else if (start < end - 50 && currentIndex > 0) {
+    //         currentIndex--;
+    //     }
+    //     updateSlidePosition();
+    // });
