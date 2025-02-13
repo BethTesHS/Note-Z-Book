@@ -70,7 +70,7 @@
 
                     <img src="{{ asset('images/profile.png') }}" alt="Profile Picture" class="profile-img">
                     <h3>{{ auth()->user()->firstName }}</h3>
-                    <p>{{ '@'.auth()->user()->username }}</p>
+                    {{-- <p>{{ '@'.auth()->user()->username }}</p> --}}
                 </div>
             </div>
         </aside>
@@ -96,7 +96,7 @@
                         ?>
 
                         <div style="margin-top: 15px">
-                            <div class="progress-container-book">
+                            <div class="progress-container-title">
                                 <p> {{ $bookDetail->title }}</p>
                                 <p> {{ $readProgress}}%</p>
                             </div>

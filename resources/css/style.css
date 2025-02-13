@@ -4,6 +4,7 @@
     --bg-color: #121212;
     --fg-color: #292421;
     --text-color: #e0e0e0;
+    --text-color-2: #b3b3b3;
     --dr-color: #25211f;
     --empty-bar: #00000033;
     --profile: #e7cca5;
@@ -17,6 +18,7 @@
     --cover-color-1: #8b5d25df;
     --spine-color-1: #412e16df;
     --spine-color-2: #5f4526df;
+    --book-hover: rgba(128, 128, 128);
 
 }
 
@@ -24,6 +26,7 @@ body.light-mode {
     --bg-color: #c0b9b1;
     --fg-color: #e0d8d1;
     --text-color: #323232;
+    --text-color-2: #585858;
     --dr-color: #cfc9c1;
     --empty-bar: #ffffff33;
     --profile: #946e40;
@@ -34,6 +37,8 @@ body.light-mode {
     --cover-color-2: #8b5d2580;
     --spine-color-1: #412e1680;
     --spine-color-2: #5f452680;
+    --book-hover: rgba(128, 128, 128, 0.3);
+
 
 }
 
@@ -169,6 +174,11 @@ p{
     border-radius: 8px;
 }
 
+.synopsis {
+    padding: 0 10px 10px 10px; 
+    color: var(--text-color-2);
+}
+
 .library {
     max-width: 800px;
     padding: 20px;
@@ -203,6 +213,15 @@ p{
                 inset -5px -5px 10px rgba(255, 255, 255, 0.1);
     overflow: hidden;
     margin-bottom: 20px;
+    border: transparent;
+    padding: 0;
+    text-align: left;
+    color: var(--text-color);
+}
+
+.book:hover{
+    background-color: var(--book-hover);
+    transition: 0.3s;
 }
 
 .spine {
@@ -246,6 +265,12 @@ p{
     justify-content: space-between;
     align-items: center;
     font-size: 20px;
+}
+
+.progress-container-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .progress-bar {
@@ -429,5 +454,10 @@ p{
         border-radius: 50%;
         font-size: 17px;
         /* z-index: 1; */
+    }
+
+    .synopsis {
+        max-height: 300px;
+        overflow-y: scroll;
     }
 }

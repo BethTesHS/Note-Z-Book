@@ -31,6 +31,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('home', [HomeController::class, 'viewPage'])->name('home'); // Form page
 
     Route::get('books', [BookController::class, 'viewPage'])->name('books'); // Form page
+    
+    Route::get('viewBook', [BookController::class, 'viewBook'])->name('viewBook'); // Form page
+    Route::get('showBook', [BookController::class, 'showBook'])->name('showBook'); // Form page
+
 
     Route::get('chatGPT1', function () { return view('unused.chatGPT1'); })->name('chatGPT1');
     Route::get('chatGPT2', function () { return view('unused.chatGPT2'); })->name('chatGPT2');

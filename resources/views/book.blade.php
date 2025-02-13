@@ -70,37 +70,48 @@
         <!-- Main Content -->
         <main class="main-content">
             <div class="card">
-                <h2>Books!</h2>
-                <p>Continue your reading journey and explore new books.</p>
+                <h2 style="font-size: 30px">{{ $book->title }}</h2>
+                <p> {{ $book->author }}</p>
             </div>
 
+            <div class="card">
+                <h2 style="padding-bottom: 7px"> Synopsis </h2>
+                <div class="synopsis">
+                    <p style="padding-bottom: 7px"> {!! nl2br(e($book->synopsis)) !!} </p>
+                </div>
+                {{-- <a class="read-more" href="#">Read More</a> --}}
+            </div>
+
+            <div class="card">
+                <h2>Reading Progress</h2>
+                <?php
+                    $readProgress = (number_format( $userBook->pagesRead / $book->pages, 2)*100);
+                ?>
+                <div>
+                    <p style="padding-bottom: 7px"> {{ $readProgress}}%</p>
+                    <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                </div>
+            </div>
+
+            {{-- 
             <div class="library">
                 <h2>Reading Progress</h2>
-                @if($userBooks->isEmpty())
-                    <p> No Books </p>
+                @if($userBook == null)
+                    <p> No Details </p>
                 @else
                 <div class="shelf">
                     <button class="nav-button" onclick="prev()">&#10094;</button>
 
                     <div class="window">
-                        <div class="books">
-                            @foreach ($userBooks as $userBook)
-                                <form action=" {{ route('showBook')}} " method="get">
-                                    <?php
-                                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
-                                        $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
-                                    ?>
-                                    <input type="hidden" name="book" value="{{$bookDetail}}">
-                                    <input type="hidden" name="userBook" value="{{$userBook}}">
-                                    {{-- <input type="hidden" name="readProgress" value="{{$readProgress}}"> --}}
-                                    
-                                    <button class="book">
+                        <div class="books" onclick="{{ route('book')}}">
+                                <div class="book" onclick="">
+                                        
                                         <div class="spine">
                                         </div>
                                         <div class="cover">
                                             <div class="progress-container">
                                                 <div class="progress-container-book">
-                                                    <p> {{ $bookDetail->title }}</p>
+                                                    <p> {{ $book->title }}</p>
                                                 </div>
                                                 <div>
                                                     <p style="padding-bottom: 7px"> {{ $readProgress}}%</p>
@@ -108,10 +119,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </button>
-                                    
-                                </form>
-                            @endforeach
+                                </div>
                         </div>
                     </div>
 
@@ -123,7 +131,7 @@
             <div class="card">
                 <h2>Discover New Books</h2>
                 <p>Find new recommendations based on your reading preferences.</p>
-            </div>
+            </div> --}}
         </main>
     </div>
 
