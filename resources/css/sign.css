@@ -41,6 +41,11 @@ body.light-mode {
     height: 100vh;
     color: var(--text-color);
     background-color: var(--bg-color);
+    
+    background-image: url('/public/images/bookArt.png');
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
     /* transition: 0.3s ease-in-out; */
 
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

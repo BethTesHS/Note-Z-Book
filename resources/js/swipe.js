@@ -5,7 +5,7 @@
     let currentIndex = 0;
 
     function updateSlidePosition() {
-        const slideWidth = cards[0].getBoundingClientRect().width + 20;
+        const slideWidth = cards[0].getBoundingClientRect().width + 0;
         track.style.transform = `translateX(-${(slideWidth * currentIndex)}px)`;
     }
 

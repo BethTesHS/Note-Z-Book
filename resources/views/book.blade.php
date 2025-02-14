@@ -68,31 +68,47 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="main-content">
-            <div class="card">
-                <h2 style="font-size: 30px">{{ $book->title }}</h2>
-                <p> {{ $book->author }}</p>
-            </div>
-
-            <div class="card">
-                <h2 style="padding-bottom: 7px"> Synopsis </h2>
-                <div class="synopsis">
-                    <p style="padding-bottom: 7px"> {!! nl2br(e($book->synopsis)) !!} </p>
+        <main class="main-content-book">
+            {{-- <img src="{{asset('images/bookArt.png')}}" /> --}}
+            <div class="main-card">
+                <div class="card">
+                    <h2 style="font-size: 30px">{{ $book->title }}</h2>
+                    <p> {{ $book->author }}</p>
+                    {{-- <p> {{  $book->publisher }}</p> --}}
                 </div>
-                {{-- <a class="read-more" href="#">Read More</a> --}}
-            </div>
 
-            <div class="card">
-                <h2>Reading Progress</h2>
-                <?php
-                    $readProgress = (number_format( $userBook->pagesRead / $book->pages, 2)*100);
-                ?>
-                <div>
-                    <p style="padding-bottom: 7px"> {{ $readProgress}}%</p>
-                    <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                <div class="card">
+                    <h2 style="padding-bottom: 7px"> Synopsis </h2>
+                    <div class="synopsis">
+                        <p style="padding-bottom: 7px"> {!! nl2br(e($book->synopsis)) !!} </p>
+                    </div>
+                    {{-- <a class="read-more" href="#">Read More</a> --}}
                 </div>
             </div>
+            <div class="side-card">
+                <div class="card">
+                    <h2 style="font-size: 30px">Book Logs</h2>
+                    <p>Take a look at your reading logs!</p>
+                </div>
+                <div class="card" >
+                    <h2>Reading Progress</h2>
+                    <?php
+                        $readProgress = (number_format( $userBook->pagesRead / $book->pages, 2)*100);
+                        ?>
+                        <div>
+                            <div class="progress-container-title">
+                                {{-- <p> {{ $bookDetail->title }}</p> --}}
+                                <p>{{$userBook->pagesRead . ' of ' . $book->pages . ' pages'}}</p>
+                                <p> {{ $readProgress}}%</p>
+                            </div>
+                            <div  style="margin-top: 7px" class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
+                        </div>
+                    {{-- <br/> --}}
 
+                    {{-- <h2>Hello</h2>
+                    <p>World</p> --}}
+                </div>
+            </div>
             {{-- 
             <div class="library">
                 <h2>Reading Progress</h2>
