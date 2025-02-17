@@ -70,7 +70,7 @@
         <!-- Main Content -->
         <main class="main-content-book">
             {{-- <img src="{{asset('images/bookArt.png')}}" /> --}}
-            <div class="main-card">
+            <div class="main-card" style="width: 45%">
                 <div class="card">
                     <h2 style="font-size: 30px">{{ $book->title }}</h2>
                     <p> {{ $book->author }}</p>
@@ -85,7 +85,7 @@
                     {{-- <a class="read-more" href="#">Read More</a> --}}
                 </div>
             </div>
-            <div class="side-card">
+            <div class="main-card" style="width: 45%">
                 <div class="card">
                     <h2 style="font-size: 30px">Book Logs</h2>
                     <p>Take a look at your reading logs!</p>

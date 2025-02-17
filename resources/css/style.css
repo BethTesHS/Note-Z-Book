@@ -18,6 +18,7 @@
     --cover-color-1: #8b5d25df;
     --spine-color-1: #412e16df;
     --spine-color-2: #5f4526df;
+    --main-card: #5f4526;
     --book-hover: rgba(128, 128, 128);
 
 }
@@ -37,6 +38,7 @@ body.light-mode {
     --cover-color-2: #8b5d2580;
     --spine-color-1: #412e1680;
     --spine-color-2: #5f452680;
+    --main-card: #b39672;
     --book-hover: rgba(128, 128, 128, 0.3);
 
 
@@ -179,21 +181,13 @@ body {
     transition: margin-left 0.3s ease-in-out;
 }
 
-.side-card {
-    width: 45%;  
-    background: var(--spine-color-2);
-    /* border: solid 1px var(--brown); */
-    padding: 20px 10px;
-    padding-bottom: 0;
-    box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
-    border-radius: 8px;
-}
-
 .main-card {
-    width: 50%;
-    background: var(--spine-color-2);
+    
+    max-width: 800px;
+    width: 100%;
+    background: var(--main-card);
     /* border: solid 1px var(--brown); */
-    padding: 20px 10px;
+    padding: 20px 20px;
     padding-bottom: 0;
     box-shadow: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
     border-radius: 8px;
@@ -201,7 +195,7 @@ body {
 
 .card {
     max-width: 800px;
-    width: 92%;
+    width: (100% - 20px);
     background: var(--fg-color);
     /* max-height: 40vh;
     overflow-y: auto;
@@ -239,7 +233,7 @@ body {
 .library {
     max-width: 800px;
     padding: 20px;
-    width: 92%;
+    width: (100% - 20px);
     /* height: 100%;
     min-height: 800px; */
 
@@ -249,9 +243,34 @@ body {
     border-radius: 8px;
 }
 
+.lib-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.dropdown {
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 35px;
+    background-color: var(--cover-color-2);
+    color: var(--text-color);
+    font-size: 15px;
+}
+
+.dropdown:hover{
+    transition: 0.2s;
+    cursor: pointer;
+    background-color: var(--cover-color-1);
+}
+
 .books {
     margin-top: 25px;
-    padding-left: 35px;
+    padding-left: 15px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 185px);
 }
@@ -292,11 +311,9 @@ body {
 
 .cover {
     margin-top: 3.5px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     width: 140px;
     height: 240px;
     border: 1.5px solid rgba(45, 21, 17, 0.244);
-    /* border-left: transparent; */
     margin-left: 3px;
     border-radius: 0 6px 6px 0;
 }
@@ -304,12 +321,10 @@ body {
 /* Progress Bars */
 .progress-container {
     margin: 5px;
-    /* padding-left: 5px; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 230px;
-    /* font-style: italic; */
 
     font-size: 17px;
 }
@@ -331,7 +346,7 @@ body {
     width: 100%;
     height: 10px;
     background: var(--empty-bar);
-    border: solid 1px #514021;
+    border: solid 1px #7a602f9a;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -362,8 +377,6 @@ body {
     cursor: pointer;
     height: 35px;
     width: 35px;
-    /* margin-left: 20px; */
-    /* padding: 1px; */
 
     background-color: transparent;
     border: solid 1px var(--text-color);
@@ -373,7 +386,6 @@ body {
 
 .profile-btn:hover {
     transition: 0.2s;
-    /* background-color: var(--brown); */
     border: solid 1px var(--profile);
     color: var(--profile);
 }
@@ -463,9 +475,8 @@ body {
     }
 }
 
-@media (max-width: 485px) {
-
-
+@media (max-width: 505px) {
+    
     .shelf {
         display: flex;
         justify-content: space-evenly;
@@ -509,12 +520,26 @@ body {
         border-radius: 50%;
         font-size: 17px;
         padding: 0px;
-        
-        /* z-index: 1; */
     }
 
     .synopsis {
+        width: 92%;
         max-height: 200px;
         overflow-y: scroll;
     }
+
+    .card, .library {
+        width: 87%;
+    }
+
+    .main-card {
+        margin: 0;
+        width: 310px;
+        background: transparent;
+        padding: 0px;
+    }
+}
+
+@media (max-width: 850px) {
+
 }

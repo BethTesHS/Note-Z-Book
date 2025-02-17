@@ -77,50 +77,53 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="card">
-                <h2>Welcome Back, {{auth()->user()->firstName }}</h2>
-                <p>Continue your reading journey and explore new books.</p>
-            </div>
+            <div class="main-card">
 
-            <div class="card">
-                <h2>Reading Progress</h2>
+                <div class="card">
+                    <h2>Welcome Back, {{auth()->user()->firstName }}</h2>
+                    <p>Continue your reading journey and explore new books.</p>
+                </div>
+
+                <div class="card">
+                    <h2>Reading Progress</h2>
 
 
-                @if($userBooks->isEmpty())
-                    <p> No Books </p>
-                @else
-                    @foreach ($userBooks as $userBook)
-                        <?php
-                            $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
-                            $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
-                        ?>
+                    @if($userBooks->isEmpty())
+                        <p> No Books </p>
+                    @else
+                        @foreach ($userBooks as $userBook)
+                            <?php
+                                $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
+                                $readProgress = (number_format( $userBook->pagesRead / $bookDetail->pages, 2)*100);
+                            ?>
 
-                        <div style="margin-top: 15px">
-                            <div class="progress-container-title">
-                                <p> {{ $bookDetail->title }}</p>
-                                <p> {{ $readProgress}}%</p>
+                            <div style="margin-top: 15px">
+                                <div class="progress-container-title">
+                                    <p> {{ $bookDetail->title }}</p>
+                                    <p> {{ $readProgress}}%</p>
+                                </div>
+                                <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
                             </div>
-                            <div class="progress-bar"><div class="progress brown" style="width: {{$readProgress}}%;"></div></div>
-                        </div>
-                    @endforeach
+                        @endforeach
 
-                @endif
+                    @endif
+                </div>
+
+                <div class="card">
+                    <h2>Discover New Books</h2>
+                    <p>Find new recommendations based on your reading preferences.</p>
+                </div>
+
+                {{-- <div>
+                    <?php
+                        $userBook = $userBooks[0];
+                        $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
+                    ?>
+                    {{ json_encode($userBook) }}
+                    <br>
+                    {{ json_encode($bookDetail) }}
+                </div> --}}
             </div>
-
-            <div class="card">
-                <h2>Discover New Books</h2>
-                <p>Find new recommendations based on your reading preferences.</p>
-            </div>
-
-            {{-- <div>
-                <?php
-                    $userBook = $userBooks[0];
-                    $bookDetail = $userBook->book::where('id', $userBook->book_id)->first();
-                ?>
-                {{ json_encode($userBook) }}
-                <br>
-                {{ json_encode($bookDetail) }}
-            </div> --}}
         </main>
 
     </div>
