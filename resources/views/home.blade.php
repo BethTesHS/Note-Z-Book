@@ -45,6 +45,8 @@
                         <i class="fa fa-gear"></i> Settings
                     </button>
                 </li> --}}
+                
+                <hr style="border: 0.5px solid rgba(167, 124, 67, 0.2); width: 90%; margin: 10px;">
 
                 <li>
                     <button id="light-mode-btn" onclick="toggleLightMode()">
