@@ -36,3 +36,20 @@
         element.style.height = "auto"; // Reset height to recalculate
         element.style.height = element.scrollHeight-20 + "px"; // Set to the scroll height
     }
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        flatpickr("#date", {
+            dateFormat: "Y-m-d",
+            allowInput: true,
+            enableTime: false,
+            defaultDate: null,
+            maxDate: "today",
+            onChange: function(dateStr) {
+                
+                filterDateInput.value = dateStr;
+            },
+        });
+    
+    });

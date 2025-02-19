@@ -6,13 +6,17 @@
     <link rel="icon" href="{{ asset('images/bookLogo.png') }}" type="image/png">
     <title>Note-Z-Book</title>
 
-    @vite(['resources/css/style.css'])
+    @vite(['resources/js/addingBook.js'])
     @vite(['resources/css/popup.css'])
+    @vite(['resources/css/calendar.css'])
+    @vite(['resources/css/style.css'])
     @vite(['resources/js/script.js'])
     @vite(['resources/js/swipe.js'])
-    @vite(['resources/js/addingBook.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 </head>
 <body>
@@ -162,7 +166,7 @@
         <div class="addBookPopup-content">
 
             <div style="padding: 20px 0px">
-                <h2> Add New Product </h2>
+                <h2> Add a Book </h2>
             </div>
             <span class="close-btn" onclick="closePopup()">&times;</span>
 
@@ -181,18 +185,19 @@
                 <label> Synopsis </label> <br>
                 <textarea oninput="adjustHeight(this)" class="textArea synTextArea" name="synopsis" type="textarea" step="any" ></textarea> <br>
 
-                <label> Year of Publication </label>
-                <div>
-                    <button type="button" onclick="sub(this.closest('div').querySelector('.stock input'))" class="pageButton"> - </button>
-                        <input style="width: 30%" class="textArea display" id="sq" name="publishDate" oninput="change(this.closest('div').querySelector('.stock input'))" type="text" value="" >
-                    <button type="button" onclick="add(this.closest('div').querySelector('.stock input'))" class="pageButton"> + </button>
+                <label> Date of Publication </label>
+                <div style="padding-bottom: 5px;">
+                    <text class="i dateButton" >
+                        <i class='fa fa-calendar'></i>             
+                        <input readonly name="publishedDate" type="button" id="date" value="Add Date">
+                    </text>
                 </div>
                 
                 <label> Pages </label>
-                <div>
-                    <button type="button" onclick="sub(this.closest('div').querySelector('.stock input'))" class="pageButton"> - </button>
-                        <input style="width: 30%" class="textArea display" id="sq" name="pages" oninput="change(this.closest('div').querySelector('.stock input'))" type="text" value="" >
-                    <button type="button" onclick="add(this.closest('div').querySelector('.stock input'))" class="pageButton"> + </button>
+                <div class="pages">
+                    <button type="button" onclick="sub(this.closest('div').querySelector('.pages input'))" class="pageButton"> - </button>
+                        <input style="width: 30%" class="textArea" name="pages" oninput="change(this.closest('div').querySelector('.pages input'))" type="number" value="0" >
+                    <button type="button" onclick="add(this.closest('div').querySelector('.pages input'))" class="pageButton"> + </button>
                 </div>
 
                 <input class="textButton" name="addBook" type="submit" value="Add Book"> <br>

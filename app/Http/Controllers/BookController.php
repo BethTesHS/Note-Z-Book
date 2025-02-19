@@ -45,7 +45,7 @@ class BookController extends Controller
                 'author' => 'required|string',
                 'publisher' => 'required|string',
                 'synopsis' => 'required|string',
-                'publishDate' => 'required|string',
+                'publishedDate' => 'required|date',
                 'pages' => 'required|integer',
             ]);
 
@@ -55,7 +55,7 @@ class BookController extends Controller
             $book->author = $validated['author'];
             $book->publisher = $validated['publisher'];
             $book->synopsis = $validated['synopsis'];
-            $book->publishedDate = $validated['publishDate'].'-01-01 00:00:00';
+            $book->publishedDate = $validated['publishedDate'];
             $book->pages = $validated['pages'];
 
             $book->save();

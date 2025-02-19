@@ -48,7 +48,7 @@ class DatabaseSeeder extends Seeder
                     'A shy young man leaves his home in rural Turkey to learn a trade and discover life in 1920s Berlin. There, amidst the city\'s bustling streets, elegant museums, passionate politics, and infamous cabarets, a chance meeting with a beautiful half-Jewish artist transforms him forever. Caught between his desire for freedom from tradition and his yearning to belong, he struggles to hold on to the new life he has found with the woman he loves.
                                 
                       Emotionally powerful, intensely atmospheric, and touchingly profound, Madonna in a Fur Coat is an unforgettable novel about new beginnings, the relentless pull of family ties, and the unfathomable nature of the human soul. First published in 1943, this novel, with its quiet yet insistent defiance of social norms, has been topping best-seller lists in Turkey since 2013.',
-                'publishedDate' => '1943-01-01 00:00:00',
+                'publishedDate' => '1943-01-01',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
                     'Of all the judgments you make in life, none is as  important as the one you make about yourself. The  difference between low self-esteem and high  self-esteem is the difference between passivity and  action, between failure and success.
                                 
                      Now, one of  America\'s foremost psychologists and a pioneer in  self-esteem development offers a step-by-step guide to  strengthening your sense of self-worth. Here are  simple, straightforward and  effective techniques that will dramatically improve  the way you think and feel about yourself.',
-                'publishedDate' => '1987-12-01 00:00:00',
+                'publishedDate' => '1987-12-01',
                 'created_at' => now(),
                 'updated_at' => now()
             ],
@@ -74,13 +74,15 @@ class DatabaseSeeder extends Seeder
                 'pagesRead'=> 86,
                 'readingStatus'=> 'Currently Reading',
                 'created_at' => now(), 
+                'updated_at' => now(),
             ],
             [
                 'user_id'=> 1,
                 'book_id'=> 2,
                 'pagesRead'=> 13,
                 'readingStatus'=> 'Stopped Reading',
-                'updated_at' => now()
+                'created_at' => now(), 
+                'updated_at' => now(),
             ],
         ]);
 

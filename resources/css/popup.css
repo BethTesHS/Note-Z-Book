@@ -88,6 +88,16 @@
     background-color: var(--button-lighter);
 }
 
+.pages input::-webkit-outer-spin-button, 
+.pages input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* .pages input[type=number]{
+    -moz-appearance: textfield;
+} */
+
 .pageButton {
     justify-content: center;
     background-color: var(--button-darker);
@@ -102,4 +112,26 @@
     cursor: pointer;
     width: 30px;
     height: 30px;
+}
+
+
+.dateButton {
+    background-color: var(--button-darker);
+    color: var(--text-color);
+    padding: 7px 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.dateButton input{
+    border: none;
+    background-color: transparent;
+    color: var(--text-color);
+    outline: none;
+    font-size: 14px;
+    width: 90px;
+    height: 30px;
+    margin-top: 5px;
+    cursor: pointer;
+    text-align: center;
 }

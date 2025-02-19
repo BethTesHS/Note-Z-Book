@@ -1,0 +1,36 @@
+
+.flatpickr-months {
+    background-color: var(--button-darker);
+    color: white;
+    border-radius: 8px 8px 0 0;
+}
+
+.flatpickr-innerContainer{
+    background-color: #c4b2a2;
+}
+
+.flatpickr-day.selected {
+    background: #9c7e62b4 !important;
+    color: black !important;
+    border-color: transparent  !important;
+    border-radius: 20%;
+}
+
+.flatpickr-day:hover {
+    background: #8d6e5454 !important;
+    border-color: transparent !important;
+    color: black !important;
+    border-radius: 20%;
+}
+
+.flatpickr-day.today {
+    border: 1px solid #8d6e54 !important;
+    font-weight: bold;
+    border-radius: 20%;
+}
+
+.flatpickr-disabled {
+    color: #00000036 !important;
+    background: transparent;
+    cursor: default !important;
+}

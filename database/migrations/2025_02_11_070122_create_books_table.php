@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('pages');
             $table->string('publisher')->nullable();
             $table->longText('synopsis')->nullable();
-            $table->datetime('publishedDate')->nullable();
+            $table->date('publishedDate')->nullable();
             $table->timestamps();
         });
     }

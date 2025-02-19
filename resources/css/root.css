@@ -15,8 +15,8 @@
 
     --brown: #aa9476a0;
     --cover-color-2: #895f2ddf;
-    --cover-color-1: #8b5d25df;
-    --spine-color-1: #412e16df;
+    --cover-color-1: #8b5d25;
+    --spine-color-1: #5c4121;
     --spine-color-2: #5f4526df;
     --main-card: #5f4526;
     --book-hover: rgba(128, 128, 128);
@@ -42,9 +42,9 @@ body.light-mode {
 
 
     --brown: #987748;
-    --cover-color-1: #7d552380;
+    --cover-color-1: #c2a076;
     --cover-color-2: #8b5d2580;
-    --spine-color-1: #412e1680;
+    --spine-color-1: #8b683d;
     --spine-color-2: #5f452680;
     --main-card: #b39672;
     --book-hover: rgba(128, 128, 128, 0.3);
