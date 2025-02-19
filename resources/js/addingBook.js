@@ -42,14 +42,16 @@
 
         flatpickr("#date", {
             dateFormat: "Y-m-d",
-            allowInput: true,
             enableTime: false,
             defaultDate: null,
             maxDate: "today",
             onChange: function(dateStr) {
-                
+                if (!dateStr) { 
+                    dateStr = "Add Date";
+                }
                 filterDateInput.value = dateStr;
             },
+            
         });
     
     });

@@ -21,8 +21,21 @@
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 10px;
+    top: 40px;
     border-radius: 10px;
-    width: 400px;
+    max-height: 612px;
+    width: 60%;
+    min-width: 250px;
+    max-width: 400px;
+    overflow-y: auto;
+    scrollbar-color: transparent;
+    -webkit-scrollbar: none;
+}
+
+.addBookPopup-content::-webkit-scrollbar-thumb {
+    background: var(--spine-color-2);
+    width: 7px;
+    border-radius: 6px;
 }
 
 .close-btn {
@@ -42,11 +55,14 @@
 
     background-color: var(--text-area);
     color: var(--text-color);
-    width: 380px;
-    max-width: 380px;
+
+    /* min-width: 250px; */
+    width: 100%;
+    max-width: 100%;
+
     height: 35px;
     
-    padding: 0 10px;
+    /* padding: 0 10px; */
     outline: none;
     border-radius: 8px;
     border: 1px solid gray;
@@ -59,11 +75,9 @@
 .synTextArea {
     min-height: 40px;
     max-height: 140px;
-    min-width: 380px;
-    padding: 10px ;
+    padding: 10px 0;
     padding-bottom: 10px;
     font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    /* font-size: 14px; */
 }
 
 .textArea::placeholder{
@@ -74,7 +88,7 @@
 .textButton{
     background-color: var(--button-darker);
     color: var(--text-color);
-    width: 400px;
+    width: 100%;
     height: 40px;
     border-radius: 6px;
     border: 1px solid transparent;
@@ -134,4 +148,10 @@
     margin-top: 5px;
     cursor: pointer;
     text-align: center;
+}
+
+@media (max-height: 750px) {
+    .addBookPopup-content {
+        height: 80%;
+    }
 }

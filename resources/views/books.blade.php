@@ -87,7 +87,7 @@
                 <div class="library">
                     <div class="lib-header">
                         <h2>Reading Progress</h2>
-                        <div>
+                        <div class="booksControl">
                             <button class="button" onclick="addNewBook()">
                                 <text>
                                     <i style="margin: 0 3px" class='fa fa-plus-square-o'></i>

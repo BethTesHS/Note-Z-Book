@@ -421,6 +421,17 @@ body {
     }
 }
 
+@media (max-width: 585px) {
+    
+    .booksControl {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: right;
+        height: 75px;
+    }
+}
+
 @media (max-width: 505px) {
     
     .shelf {

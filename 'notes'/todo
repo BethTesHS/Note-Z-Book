@@ -1,3 +1,4 @@
 - Add Date Picker in Published Date - DONE
 - Add Proper Message for Error Alert
-- Make books and book page responsive to mobile
+- Make books.blade.php responsive to mobile - DONE
+- Make book.blade.php responsive to mobile
