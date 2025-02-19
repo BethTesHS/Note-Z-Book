@@ -1,0 +1,22 @@
+download
+    composer
+    node.js
+    git
+    xampp
+
+xampp was outdated so i uninstalled and installed a new version
+
+composer update
+composer install
+
+cp .env.example .env
+
+php artisan key:generate
+php artisan config:clear
+
+php artisan migrate
+
+npm update
+
+php artisan serve
+npm run dev
