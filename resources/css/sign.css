@@ -1,34 +1,4 @@
-:root {
-    --bg-color: #121212;
-    --fg-color: #292421;
-    --text-color: #e0e0e0;
-
-    --text-area: #3a342f;
-    --text-placeholder: #ffffff80;
-
-    --link-normal: #f0d9ba;
-    --link-dark: #d2ad79;
-
-    --button-lighter: #a07841;
-    --button-darker: #7f633b;
-
-    --shadow-color: #0000001a;
-}
-
-body.light-mode {
-    --bg-color: #c0b9b1;
-    --text-color: #323232;
-    --fg-color: #e0d8d1;
-
-    --text-area: #eeeeee;
-    --text-placeholder: #808080;
-
-    --link-normal: #836844;
-    --link-dark: #412f19;
-
-    --button-lighter: #b8915a;
-    --button-darker: #9b7b4f;
-}
+@import url("root.css");
 
 .signBody{
     margin: 0;
@@ -115,7 +85,7 @@ body.light-mode {
 }
 
 .signLink{
-    color: var(--link-dark);
+    color: var(--link-dark2);
     font-size: small;
     display: flex;
     justify-content: center;
@@ -123,6 +93,6 @@ body.light-mode {
 }
 
 .signLink:hover{
-    color: var(--link-normal);
+    color: var(--link-normal2);
     transition: 0.2s;
 }
