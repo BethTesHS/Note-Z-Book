@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\UserBook;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class BookController extends Controller
 {
@@ -35,6 +36,47 @@ class BookController extends Controller
         // $readProgress = session('readProgress');
 
         return view('book', compact('book', 'userBook'));
+    }
+
+    public function addBook(Request $request) {
+        try{
+            $validated = $request->validate([
+                'title' => 'required|string',
+                'author' => 'required|string',
+                'publisher' => 'required|string',
+                'synopsis' => 'required|string',
+                'publishDate' => 'required|string',
+                'pages' => 'required|integer',
+            ]);
+
+            $book = new Book();
+
+            $book->title = $validated['title'];
+            $book->author = $validated['author'];
+            $book->publisher = $validated['publisher'];
+            $book->synopsis = $validated['synopsis'];
+            $book->publishedDate = $validated['publishDate'].'-01-01 00:00:00';
+            $book->pages = $validated['pages'];
+
+            $book->save();
+
+            UserBook::insert([
+                'user_id' => auth()->user()->id,
+                'book_id' => $book->id,
+                'pagesRead' => 0,
+                'readingStatus' => 'Currently Reading',
+                'created_at' => now(), 
+                'updated_at' => now()
+            ]);
+
+
+
+            return redirect()->route('books')->with('success', 'Product added successfully!');
+        } catch (ValidationException $e) {
+            return redirect()->back()
+                ->withErrors($e->validator) // Store validation errors
+                ->with('error_alert', true); // Store session flag for alert
+        }
     }
 
 }

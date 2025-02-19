@@ -73,12 +73,14 @@ class DatabaseSeeder extends Seeder
                 'book_id'=> 1,
                 'pagesRead'=> 86,
                 'readingStatus'=> 'Currently Reading',
+                'created_at' => now(), 
             ],
             [
                 'user_id'=> 1,
                 'book_id'=> 2,
                 'pagesRead'=> 13,
                 'readingStatus'=> 'Stopped Reading',
+                'updated_at' => now()
             ],
         ]);
 

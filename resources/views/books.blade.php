@@ -7,11 +7,12 @@
     <title>Note-Z-Book</title>
 
     @vite(['resources/css/style.css'])
+    @vite(['resources/css/popup.css'])
     @vite(['resources/js/script.js'])
     @vite(['resources/js/swipe.js'])
+    @vite(['resources/js/addingBook.js'])
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-
 
 </head>
 <body>
@@ -82,12 +83,22 @@
                 <div class="library">
                     <div class="lib-header">
                         <h2>Reading Progress</h2>
-                        <select name="category_id" class="dropdown">
-                            <option value="0"> Currently Reading</option>
-                            {{-- @foreach($categories as $category)
-                                <option value="{{ $category->name }}">{{ $category->name }}</option>
-                            @endforeach --}}
-                        </select>
+                        <div>
+                            <button class="button" onclick="addNewBook()">
+                                <text>
+                                    <i style="margin: 0 3px" class='fa fa-plus-square-o'></i>
+                                </text>
+                                Add New Book
+                            </button>
+                            <select name="currently" class="dropdown">
+                                <option value="1"> Currently Reading</option>
+                                <option value="2"> Finished Reading</option>
+                                <option value="3"> Not Reading</option>
+                                {{-- @foreach($categories as $category)
+                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                @endforeach --}}
+                            </select>
+                        </div>
                     </div>
                     @if($userBooks->isEmpty())
                         <p> No Books </p>
@@ -142,4 +153,64 @@
     </div>
 
 </body>
+
+
+{{-------------- // POPUPS // --------------}}
+
+    {{-- Add Product Popup --}}
+    <div id="addBookPopup" class="addBookPopup">
+        <div class="addBookPopup-content">
+
+            <div style="padding: 20px 0px">
+                <h2> Add New Product </h2>
+            </div>
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+
+            <form action="{{ route(name: 'addBook') }}" autocomplete="off" method="POST">
+                @csrf
+
+                <label> Title </label> <br>
+                <input class="textArea" name="title" type="text" > <br>
+
+                <label> Author </label> <br>
+                <input class="textArea" name="author" type="text" > <br>
+
+                <label> Publisher </label> <br>
+                <input class="textArea" name="publisher" type="text" > <br>
+
+                <label> Synopsis </label> <br>
+                <textarea oninput="adjustHeight(this)" class="textArea synTextArea" name="synopsis" type="textarea" step="any" ></textarea> <br>
+
+                <label> Year of Publication </label>
+                <div>
+                    <button type="button" onclick="sub(this.closest('div').querySelector('.stock input'))" class="pageButton"> - </button>
+                        <input style="width: 30%" class="textArea display" id="sq" name="publishDate" oninput="change(this.closest('div').querySelector('.stock input'))" type="text" value="" >
+                    <button type="button" onclick="add(this.closest('div').querySelector('.stock input'))" class="pageButton"> + </button>
+                </div>
+                
+                <label> Pages </label>
+                <div>
+                    <button type="button" onclick="sub(this.closest('div').querySelector('.stock input'))" class="pageButton"> - </button>
+                        <input style="width: 30%" class="textArea display" id="sq" name="pages" oninput="change(this.closest('div').querySelector('.stock input'))" type="text" value="" >
+                    <button type="button" onclick="add(this.closest('div').querySelector('.stock input'))" class="pageButton"> + </button>
+                </div>
+
+                <input class="textButton" name="addBook" type="submit" value="Add Book"> <br>
+            </form>
+        </div>
+    </div>
+
+    {{-- -----------  ALERTS ----------- --}}
+    @if(session('error_alert') && $errors->any())
+        <script>
+            window.onload = function() {
+                let errorMessage = "";
+                @foreach($errors->all() as $error)
+                    errorMessage += "{{ $error }}\n";
+                @endforeach
+                alert(errorMessage);
+            };
+        </script>
+    @endif
+    
 </html>

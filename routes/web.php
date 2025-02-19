@@ -28,12 +28,13 @@ Route::middleware(['auth'])->group(function () {
         return view('home');
     });
 
-    Route::get('home', [HomeController::class, 'viewPage'])->name('home'); // Form page
+    Route::get('/home', [HomeController::class, 'viewPage'])->name('home'); // Form page
 
-    Route::get('books', [BookController::class, 'viewPage'])->name('books'); // Form page
+    Route::get('/books', [BookController::class, 'viewPage'])->name('books'); // Form page
     
-    Route::get('viewBook', [BookController::class, 'viewBook'])->name('viewBook'); // Form page
-    Route::get('showBook', [BookController::class, 'showBook'])->name('showBook'); // Form page
+    Route::get('/viewBook', [BookController::class, 'viewBook'])->name('viewBook'); // Form page
+    Route::get('/showBook', [BookController::class, 'showBook'])->name('showBook'); // Form page
+    Route::post('/addBook', [BookController::class, 'addBook'])->name('addBook');
 
 
     Route::get('chatGPT1', function () { return view('unused.chatGPT1'); })->name('chatGPT1');
