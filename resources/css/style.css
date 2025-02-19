@@ -25,7 +25,7 @@
 }
 
 .navbar h1 {
-    margin: 5px;
+    margin: 5px 0;
     margin-left: 25px;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .main-card {
-    
+
     max-width: 800px;
     width: 100%;
     background: var(--main-card);
@@ -153,7 +153,7 @@ body {
 
 
 .synopsis {
-    padding: 0 10px 10px 10px; 
+    padding: 0 10px 10px 10px;
     color: var(--text-color-2);
     max-height: 35vh;
     overflow-y: auto;
@@ -422,7 +422,7 @@ body {
 }
 
 @media (max-width: 585px) {
-    
+
     .booksControl {
         display: flex;
         flex-direction: column;
@@ -433,7 +433,15 @@ body {
 }
 
 @media (max-width: 505px) {
-    
+
+    .navbar{
+        padding-left: 0;
+    }
+
+    .menu-btn {
+        margin-right: 0;
+    }
+
     .shelf {
         display: flex;
         justify-content: space-evenly;
@@ -489,9 +497,13 @@ body {
         width: 87%;
     }
 
+    .lib-header h2 {
+        margin-right: 10px;
+    }
+
     .main-card {
         margin: 0;
-        width: 310px;
+        width: 110%;
         background: transparent;
         padding: 0px;
     }

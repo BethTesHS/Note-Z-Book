@@ -55,7 +55,7 @@
                         </button>
                     </form>
                 </li>
-                
+
             </ul>
         </aside>
 
@@ -113,7 +113,7 @@
                     <p>World</p> --}}
                 </div>
             </div>
-            {{-- 
+            {{--
             <div class="library">
                 <h2>Reading Progress</h2>
                 @if($userBook == null)
@@ -125,7 +125,7 @@
                     <div class="window">
                         <div class="books" onclick="{{ route('book')}}">
                                 <div class="book" onclick="">
-                                        
+
                                         <div class="spine">
                                         </div>
                                         <div class="cover">

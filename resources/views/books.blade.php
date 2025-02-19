@@ -121,7 +121,7 @@
                                         <input type="hidden" name="book" value="{{$bookDetail}}">
                                         <input type="hidden" name="userBook" value="{{$userBook}}">
                                         {{-- <input type="hidden" name="readProgress" value="{{$readProgress}}"> --}}
-                                        
+
                                         <button class="book">
                                             <div class="spine">
                                             </div>
@@ -137,7 +137,7 @@
                                                 </div>
                                             </div>
                                         </button>
-                                        
+
                                     </form>
                                 @endforeach
                             </div>
@@ -188,11 +188,11 @@
                 <label> Date of Publication </label>
                 <div style="padding-bottom: 5px;">
                     <text class="i dateButton" >
-                        <i class='fa fa-calendar'></i>             
+                        <i class='fa fa-calendar'></i>
                         <input readonly name="publishedDate" type="button" id="date" value="Add Date">
                     </text>
                 </div>
-                
+
                 <label> Pages </label>
                 <div class="pages">
                     <button type="button" onclick="sub(this.closest('div').querySelector('.pages input'))" class="pageButton"> - </button>
@@ -217,5 +217,5 @@
             };
         </script>
     @endif
-    
+
 </html>
