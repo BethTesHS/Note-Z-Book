@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\UserBook;
+use App\Models\UserStats;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -68,6 +69,22 @@ class BookController extends Controller
                 'created_at' => now(), 
                 'updated_at' => now()
             ]);
+
+            $userStats = UserStats::where('id', auth()->user()->id)->first();
+
+            if ($userStats==null) {
+                UserStats::insert([
+                    'user_id' => auth()->user()->id,
+                    'currentlyReading' => 1,
+                    'finishedReading' => 0,
+                    'notReading' => 0,
+                ]);
+            } 
+            else {
+                $userStats->update([
+                    'currentlyReading' => $userStats->currentlyReading + 1,
+                ]);
+            }
 
 
 

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('finishedReading');
             $table->integer('currentlyReading');
-            $table->integer('stoppedReading');
+            $table->integer('notReading');
             $table->timestamps();
         });
     }

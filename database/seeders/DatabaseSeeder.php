@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
                 'user_id'=> 1,
                 'book_id'=> 2,
                 'pagesRead'=> 13,
-                'readingStatus'=> 'Stopped Reading',
+                'readingStatus'=> 'Not Reading',
                 'created_at' => now(), 
                 'updated_at' => now(),
             ],
@@ -91,7 +91,7 @@ class DatabaseSeeder extends Seeder
                 'user_id'=> 1,
                 'finishedReading'=> 0,
                 'currentlyReading'=> 1,
-                'stoppedReading'=> 1,
+                'notReading'=> 1,
             ]
         ]);
     }

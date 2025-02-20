@@ -10,6 +10,8 @@ class UserStats extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['currentlyReading', 'finishedReading', 'notReading'];
+
     protected $table = "userStats";
 
     public function user()
