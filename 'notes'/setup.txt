@@ -17,6 +17,7 @@ php artisan config:clear
 php artisan migrate
 
 npm update
+npm run build
 
 php artisan serve
 npm run dev
